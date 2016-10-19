@@ -1,0 +1,57 @@
+html,body {
+  height:100%;
+  background-color:#000;
+}
+.main-row {
+  margin-left:0;
+  margin-right:0;
+}
+.fill {
+  width:100%;
+  height:100%;
+  min-height:100%;
+  padding:0px;
+}
+#sidebar
+{
+  background: #F0F0F0;
+  height:100%;
+  min-height:100%;
+}
+#app_content {
+  padding-top: 52px;
+}
+#chat_content
+{
+  background: #fff;
+  height:100%;
+  min-height:100%;
+}
+
+#chat_header {
+  background: grey;
+  color: white;
+  border-bottom: 1px solid black;
+}
+#repeating_content_area {
+  max-height:80%;
+  overflow:scroll;
+}
+
+.chat_message {
+  padding:.5em;
+  border-bottom: 1px dotted black;
+}
+#chat_footer {
+  padding:2em;
+  background:beige;
+  bottom:0;
+}
+
+#chat_footer input {
+  width: 100%;
+}
+
+#emaillogin{ background-color: #333; 
+}
+

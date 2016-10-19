@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>History Unfolded- </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="css/half-slider.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+<body>
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a  class="navbar-brand start-a-search-btn" href="#">Start a Search</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" class='btn_home'>Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class='btn_groupchat'>Group Chat</a> 
+                    </li>
+                    
+                    <li>
+                        <a href="#">Direct Msg</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+
+        <!-- /.container -->
+    </nav>
+
+
+<div id="home_content" class="row main_row fill">
+<!-- Half Page Image Background Carousel Header -->
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+             <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill img-responsive" style="background-image:url(img/hist1.jpg);"></div>
+                <div class="carousel-caption">
+                    <h2>Connect</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url(img/hist2.png);"></div>
+                <div class="carousel-caption">
+                    <h2>Share Outlooks</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url(img/hist3.jpg);"></div>
+                <div class="carousel-caption">
+                    <h2>Look up History</h2>
+                </div>
+                </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url(img/hist.4.jpeg);"></div>
+                <div class="carousel-caption">
+                    <h2>Discuss</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </div>
+<!-- Page Content -->
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>History and Me!!</h1>
+                <H2>
+                <p>History and me!, is an interactive app, that allows people with a love of History and all things Historical,a platform in which not only to look up important dates and foot notes in history. But also share their own out look, and personal interupation of events that have transpired! Please share and create a forum or join us in a chat group, and let us know your own historical take and your own ideas on how it has lead us to today! </p> </H2>
+
+            </div>
+            <input id="mylogin" type="text">
+            <input id="mypassword" type="text'">
+
+            <button class="btn btn-block btn-success" id="emaillogin">CreateUserWithEmailAndPassword: 
+</button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" class='btn_home'>Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class='btn_groupchat'>Group Chat</a> 
+                    </li>
+                    
+                    <li>
+                        <a href="#">Direct Msg</a>
+                    </li>
+                    <li>
+                        <a href="#" id="github">Git.Hub</a>
+                    </li>
+                    <li>
+                        <a href="#" id='logout'>Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+      </div> 
+
+
+
+</div>
+
+
+
+<div id="app_content" class="row main_row fill" style="display:none">
+   
+   <!-- Our sidebar is full height and 3 columns wide -->
+   <div id="sidebar" class="col-sm-3">
+     <h1>Chat Rooms</h1>
+     <!--Sidebar content-->
+     <ul>
+       <li>Roman Era</li>
+       <li>Dark Ages</li>
+       <li> Renassince</li> 
+       <li>Industrial Era</li>
+       <li>World War One</li>
+       <li>World War Two</li>
+      </ul>
+   </div>
+   
+   <!-- our main chat content is full height and 9 columns wide. -->
+   <div id="chat_content" class="col-sm-9">
+     
+     <!-- This element is the header for the main chat area. -->
+     <div id="chat_header" class="row">
+       <div class="col-sm-12">
+         <h3>Group Chat</h3>
+       </div>
+     </div>
+     
+      <!-- This element is most of the chat area. It's where your chat messages go. -->
+     <div id="repeating_content_area" class="row">
+       
+       <!-- These elements would be chat messages. They could repeat programatically based on content. -->
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+     </div>
+     
+     <div id="chat_footer" class="row navbar navbar-fixed-bottom">
+       <div class="col-sm-10">
+         <input id="chat_msg" type="text"/>
+       </div>
+       <div class="col-sm-2">
+
+         <button>Submit</button> 
+         <div id='btn-add-todo' type ='text'/>
+
+       </div>
+
+     </div>
+     
+  </div>
+  <div id="app_content2" class="row main_row fill" style="display:none">
+   
+   <!-- Our sidebar is full height and 3 columns wide -->
+   <div id="sidebar" class="col-sm-3">
+     <h1>Chat Rooms</h1>
+     <!--Sidebar content-->
+     <ul>
+       <li>Roman Era</li>
+       <li>Dark Ages</li>
+       <li> Renassince</li> 
+       <li>Industrial Era</li>
+       <li>World War One</li>
+       <li>World War Two</li>
+      </ul>
+   </div>
+   
+   <!-- our main chat content is full height and 9 columns wide. -->
+   <div id="chat_content" class="col-sm-9">
+     
+     <!-- This element is the header for the main chat area. -->
+     <div id="chat_header" class="row">
+       <div class="col-sm-12">
+         <h3>Group Chat</h3>
+       </div>
+     </div>
+     
+      <!-- This element is most of the chat area. It's where your chat messages go. -->
+     <div id="repeating_content_area" class="row">
+       
+       <!-- These elements would be chat messages. They could repeat programatically based on content. -->
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+       <div class="chat_message col-sm-12">
+         <p></p>
+       </div>
+     </div>
+     
+     <div id="chat_footer" class="row navbar navbar-fixed-bottom">
+       <div class="col-sm-10">
+         <input id="chat_msg" type="text"/>
+       </div>
+       <div class="col-sm-2">
+         <button>Submit</button>
+
+       </div>
+
+     </div>
+     
+  </div>
+
+
+ <div class="popup-messages-footer">
+            <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+            <div class="btn-footer">
+            <button class="bg_none"><i class="glyphicon glyphicon-film"></i> </button>
+            <button class="bg_none"><i class="glyphicon glyphicon-camera"></i> </button>
+            <button class="bg_none"><i class="glyphicon glyphicon-paperclip"></i> </button>
+            <button class="bg_none pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> </button>
+            </div>
+            </div>
+      </div>
+
+      <div id ="start-a-search" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Time Caps</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>History:</label>
+                        <input type="text" id="new-todo-text" class="form-control input-lg">
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button id="btn-add-todo" class="btn btn-success">
+                    Add
+                </button> 
+          </div> 
+        </div>  
+      </div>       
+
+</body>
+</html>
+          

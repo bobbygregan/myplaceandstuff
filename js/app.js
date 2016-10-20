@@ -90,38 +90,20 @@ $('#logout').click(function(){
 	});
 
 	}); 
-
+$('#Submit').click(function() {
 }); 
-	$("#Submit").click(function() {
-alert(“It’s clicked”);
-/*
-       var todoRef = database.ref('/todos/'+loggedUser.id);
+	
 
-       // make sure the new todo isn't blank
-       if ($("#nSubmit").val() != "") {
+		var todoRef = database.ref('/todos/'+loggedUser.id);
 
-           // add the todo and update the values. finally close the modal
-           todoRef.push($("#new-todo-text").val());
-           $("#Submit").val("");
-           $("#add-modal").modal('hide');
-       }
-*/
-   });
+		// make sure the new todo isn't blank
+		if ($("#nSubmit").val() != "") {
+
+			// add the todo and update the values. finally close the modal
+			todoRef.push($("#new-todo-text").val());
+			$("#Submit").val("");
+			$("#add-modal").modal('hide');
 		}
 	});
 
-$(function(){
-$("#addClass").click(function () {
-          $('#qnimate').addClass('popup-box-on');
-            });
-          
-            $("#removeClass").click(function () {
-          $('#qnimate').removeClass('popup-box-on');
-            });
-  })
 
-// firebase.auth().signOut().then(function() {
-//   // Sign-out successful.
-// }, function(error) {
-//   // An error happened.
-// });

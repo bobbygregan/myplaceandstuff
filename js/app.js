@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var user;
 var config = {
     apiKey: "AIzaSyCYrJ_qf-zcxJgk1JTAzSmOIr1oKbxglj4",
     authDomain: "my-awesome-project-14816.firebaseapp.com",
@@ -24,7 +25,34 @@ var config = {
   $('.start-a-search-btn').click(function() { $("#start-a-search").modal();
 });
 
+var todoRef = firebase.database().ref('/msgs');
+				todoRef.on('value', function(snapshot) {
 
+					var snapshotValue = snapshot.val();
+					if (snapshotValue == undefined || snapshotValue == null) {
+						$("#repeating_content_area").html(`
+							<div class="col-sm-12">
+								no msgs!
+							</div>
+						`);
+					}
+					else {
+						var keys = Object.keys(snapshotValue);
+
+						// populate the div with the class 'todo-list'
+						$("#repeating_content_area").html("");
+						for (var i = 0; i < keys.length; i++) {
+							$("#repeating_content_area").append(`
+								
+									
+								<div class="col-sm-12">
+									${snapshotValue[keys[i]]}
+								</div>
+							`);
+						}
+
+					}
+				});
 
 
 var provider = new firebase.auth.GithubAuthProvider(); 
@@ -43,7 +71,7 @@ $('#github').click(function(){
   	// This gives you a GitHub Access Token. You can use it to access the GitHub API.
 	  var token = result.credential.accessToken;
 	  // The signed-in user info.
-	  var user = result.user;
+	  user = result.user;
 	  // ...
 	}).catch(function(error) {
 	  // Handle Errors here.
@@ -91,19 +119,18 @@ $('#logout').click(function(){
 
 	}); 
 $('#Submit').click(function() {
-}); 
+ 
 	
 
-		var todoRef = database.ref('/todos/'+loggedUser.id);
+		var todoRef = firebase.database().ref('/msgs');
 
 		// make sure the new todo isn't blank
-		if ($("#nSubmit").val() != "") {
+		// if ($("#nSubmit").val() != "") {
 
 			// add the todo and update the values. finally close the modal
-			todoRef.push($("#new-todo-text").val());
-			$("#Submit").val("");
-			$("#add-modal").modal('hide');
-		}
-	});
-
-
+			todoRef.push($("#chat_msg").val());
+			// $("#Submit").val("");
+			// $("#add-modal").modal('hide');
+		// }
+	}); 
+});
